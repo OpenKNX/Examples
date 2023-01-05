@@ -1,8 +1,7 @@
 #include <Arduino.h>
-#include <SoftwareSerial.h>
 #include <knx.h>
 
-SoftwareSerial ser(D8, D5);
+//#pragma message "Pico Core Version: " ARDUINO_PICO_VERSION_STR 
 
 void setup()
 {
