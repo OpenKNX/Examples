@@ -4,8 +4,8 @@
 #include <knx.h>
 #include "hardware.h"
 
-#define goLedSwitch knx.getGroupObject(0)
-#define goLedState knx.getGroupObject(1)
+#define goLedSwitch knx.getGroupObject(1)
+#define goLedState knx.getGroupObject(2)
 
 KnxFacade<RP2040ArduinoPlatform, Bau07B0> knx;
 
@@ -38,25 +38,42 @@ bool ledActive = false;
 int interval = 0;
 int color = 0;
 
+void setLed(bool state)
+{
+    ledState = state;
+
+    if(ledState)
+    {
+        pixels.setPixelColor(0, pixels.Color(color == 0 ? 255:0, color == 1 ? 255:0, color == 2 ? 255:0));
+        pixels.show();
+    } else {
+        pixels.clear();
+        pixels.show();
+    }
+    goLedState.value(ledState);
+}
+
 void switchCallback(GroupObject& go)
 {
-    //ledActive = go.value();
+    ledActive = go.value();
+    ser.print("Switch Callback ");
+    ser.println(go.value() ? "True" : "False");
 }
 
 void setup()
 {
-    pinMode(25, OUTPUT);
-    digitalWrite(25, HIGH);
+    //pinMode(25, OUTPUT);
+    //digitalWrite(25, HIGH);
     ser.begin(115200);
-    delay(5000);
-    digitalWrite(25, LOW);
+    //delay(5000);
+    //digitalWrite(25, LOW);
 
     pixels.begin();
     pinMode(Power, OUTPUT);
     digitalWrite(Power, HIGH);
     pixels.setPixelColor(0, pixels.Color(233, 242, 205));
     pixels.show();
-    delay(2000);
+    delay(1000);
     pixels.clear();
     pixels.show();
 
@@ -78,11 +95,11 @@ void setup()
         ser.println(blink, HEX);
         uint8_t uinterval = knx.paramByte(PARAM_interval);
         ser.print("Parameter Interval: ");
-        ser.println(uinterval, HEX);
+        ser.println(uinterval);
         interval = blink == 1 ? (uinterval * 10) : -1;
         lastmillis = 0 - interval;
 
-        //goLedSwitch.callback(switchCallback);
+        goLedSwitch.callback(switchCallback);
         goLedSwitch.dataPointType(DPT_Switch);
         goLedState.dataPointType(DPT_Switch);
         ser.println("Callbacks linked");
@@ -104,30 +121,24 @@ void loop()
     if (!knx.configured()) return;
 
 
-    if(interval >= 0)
+    if(ledActive)
     {
-        if(lastmillis + interval < millis())
+        if(interval >= 0)
         {
-            lastmillis = millis();
-            if(ledState)
+            if(lastmillis + interval < millis())
             {
-                pixels.setPixelColor(0, pixels.Color(color == 0 ? 255:0, color == 1 ? 255:0, color == 2 ? 255:0));
-                pixels.show();
-                ledState = true;
-            } else {
-                pixels.clear();
-                pixels.show();
+                lastmillis = millis();
+                setLed(!ledState);
             }
-            goLedState.value(ledState);
-            ledState = !ledState;
+        } else {
+            if(!ledState)
+            {
+                setLed(true);
+            }
         }
-    } else {
-        if(!ledState)
-        {
-            pixels.setPixelColor(0, pixels.Color(color == 0 ? 255:0, color == 1 ? 255:0, color == 2 ? 255:0));
-            pixels.show();
-            ledState = true;
-            //goLedState.value(ledState);
-        }
+    } else if(ledState)
+    {
+        setLed(false);
     }
+    
 }
