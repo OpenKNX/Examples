@@ -26,7 +26,7 @@ void progLedOff()
 void progLedOn()
 {
     ser.println("ProgMode ON");
-    pixels.setPixelColor(0, pixels.Color(20, 0, 0));
+    pixels.setPixelColor(0, pixels.Color(255, 0, 0));
     pixels.show();
 }
 
