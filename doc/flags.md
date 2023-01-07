@@ -39,6 +39,6 @@ You can finde them in your `platformio.ini`.
 By default the Stack will create a knx instance for you with the correct platform.  
 Sometimes it is a good option to create this instance by your own. (Because you dont want to use a prog button)  
 Once you added this flag you can create it by adding following line in your main code:
-```
+```C++
 KnxFacade<xxxPlatform,BauXXX> knx;
 ```
