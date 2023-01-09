@@ -1,7 +1,7 @@
 # OpenKNX Examples
 
 ## Wiki
-You can find a Wiki for good to know or additional information [here](wiki/).  
+You can find a Wiki for good to know or additional information [here](https://github.com/thewhobox/KNX_Test/wiki).  
 
 ## Content
 
@@ -11,4 +11,4 @@ Here you can find all examples:
 
 |Name|Description|Tool|Hardware|
 |---|---|---|---|
-|[Blink](XIAO_RP2040_Blink/)|NeoPixel static/blink. OnOff with CO|Kaenx-Creator|XIAO RP2040|
+|[Blink](XIAO_RP2040_Blink/)|Actuator with LED (NeoPixel) to show State. LED has three lights and can blink.|Kaenx-Creator|XIAO RP2040|
