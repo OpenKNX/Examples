@@ -12,7 +12,7 @@ Here you can find all examples:
 ### Platform Basics (without KNX-Stack)
 |Name|Description|Tool|Hardware|
 |---|---|---|---|
-|[Blank](PiPico_RP2040_Blink/)|Easy Blink project. Without any KNX-Stack. Perfect for the first start.|-|Pi Pico|
+|[Blank](PiPico_RP2040_Blank/)|Easy Blink project. Without any KNX-Stack. Perfect for the first start.|-|Pi Pico|
 
 ### OpenKNX Basics
 |Name|Description|Tool|Hardware|
