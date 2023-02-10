@@ -1,7 +1,7 @@
 # OpenKNX Examples
 
 ## Wiki
-You can find a Wiki for good to know or additional information [here](https://github.com/thewhobox/KNX_Test/wiki).  
+You can find a Wiki for good to know or additional information [here](https://github.com/OpenKNX/Examples/wiki).  
 
 ## Content
 
