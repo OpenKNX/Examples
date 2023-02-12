@@ -13,12 +13,18 @@ const char *LogChannel::name()
 
 void LogChannel::setup()
 {
-    
+    log("Setup");
+    Serial.print("ChannelIndex: ");
+    Serial.println(_channelIndex);
 }
 
 void LogChannel::loop()
 {
-    log("Nur ein test");
+    if(lastHello + ((_channelIndex+1) * 1000) < millis())
+    {
+        lastHello = millis();
+        log("Hallo");
+    }
 }
 
 void LogChannel::readStatus()

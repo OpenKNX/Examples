@@ -19,10 +19,22 @@ void LogModule::setup()
     }
 }
 
+int lastmil = 0;
+bool ledState = false;
+
 void LogModule::loop()
 {
     for (uint8_t i = 0; i < BTN_ChannelCount; i++)
+    {
         _channels[i]->loop();
+    }
+
+    if(lastmil + 1000 < millis())
+    {
+        lastmil = millis();
+        ledState = !ledState;
+        digitalWrite(25, ledState);
+    }
 }
 
 void LogModule::processInputKo(GroupObject& iKo)

@@ -3,7 +3,8 @@
 class LogChannel : public OpenKNX::Channel
 {
     private:
-        uint8_t _channelIndex;
+        long lastHello;
+    //    uint8_t _channelIndex;
     public:
         LogChannel(uint8_t index);
 
