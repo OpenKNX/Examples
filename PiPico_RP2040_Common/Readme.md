@@ -16,7 +16,6 @@ Create three files in include:
     - **MAIN_ApplicationNumber** -> your AppNumber (second byte of ApplicationNumber 0x--??)
     - **MAIN_ApplicationVersion** -> VersionNumber of the Application
     - **MAIN_OrderNumber** -> The OrderNumber of the Product
-  - KnxHelper.h just an empty file for now
 To copy the needed files to OGM-Common you need the file "extra_script.py". it will just copy the three files to the include folder of OGM-Common.
 
 Your platformio.ini should now look like this:
