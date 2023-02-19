@@ -6,7 +6,7 @@ LogChannel::LogChannel(uint8_t index)
     _channelIndex = index;
 }
 
-const char *LogChannel::name()
+const std::string LogChannel::name()
 {
     return "Log";
 }

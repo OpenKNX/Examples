@@ -10,8 +10,8 @@ class LogModule : public OpenKNX::Module
 		void processAfterStartupDelay() override;
 		void processInputKo(GroupObject &ko) override;
 
-		const char *name() override;
-		const char *version() override;
+		const std::string name() override;
+		const std::string version() override;
 		// void writeFlash() override;
 		// void readFlash(const uint8_t* data, const uint16_t size) override;
 		// uint16_t flashSize() override;

@@ -3,14 +3,14 @@
 //Give your Module a name
 //it will be desplayed when you use the method log("Hello")
 // -> Log     Hello
-const char* LogModule::name()
+const std::string LogModule::name()
 {
     return "Log";
 }
 
 //You can also give it a version
 //will be displayed in Command Infos 
-const char* LogModule::version()
+const std::string LogModule::version()
 {
     return "0.0dev";
 }
