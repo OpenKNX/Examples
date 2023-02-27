@@ -5,4 +5,4 @@
 #define KNX_UART_TX_PIN 0
 #define KNX_UART_RX_PIN 1
 
-#define BTN_ChannelCount 4
+#define BTN_ChannelCount 3
