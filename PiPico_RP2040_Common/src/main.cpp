@@ -4,6 +4,9 @@
 
 void setup()
 {
+	//usually openknx.setup will take care of the begin
+	//but we will use it to print "Starte" before setup
+	//to show when common will start
 	SERIAL_DEBUG.begin(115200);
 	delay(10000);
 	SERIAL_DEBUG.println("Starte");
