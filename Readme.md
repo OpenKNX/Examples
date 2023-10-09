@@ -19,3 +19,4 @@ Here you can find all examples:
 |---|---|---|---|
 |[Blink](XIAO_RP2040_Blink/)|Actuator with LED (NeoPixel) to show State. LED has three lights and can blink.|Kaenx-Creator|XIAO RP2040|
 |[Common](PiPico_RP2040_Common/)|Learn how to integrate OGM-Common. Simple blink Module with 4 logging channels.|-|Pi Pico|
+|[Blink-Common](XIAO_WS_RP2040_Blink_Common/)|Same as `blink`, but now integrated with OGM-Common.|Kaenx-Creator|XIAO RP2040 or WaveShare RP2040-Zero|
