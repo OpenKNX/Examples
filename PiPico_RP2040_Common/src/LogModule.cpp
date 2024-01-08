@@ -12,7 +12,7 @@ const std::string LogModule::name()
 //will be displayed in Command Infos 
 const std::string LogModule::version()
 {
-    return "0.0dev";
+    return ""; // Leeren string zurückgeben, damit nur der Hash angezeigt wird in der Konsole
 }
 
 //will be called once
@@ -77,3 +77,5 @@ void LogModule::processAfterStartupDelay()
 // {
 //     return 10;
 // }
+
+LogModule openknxLogModule;

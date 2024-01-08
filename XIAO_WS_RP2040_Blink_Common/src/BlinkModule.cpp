@@ -13,7 +13,7 @@ const std::string BlinkModule::name()
 //will be displayed in Command Infos 
 const std::string BlinkModule::version()
 {
-    return "0.0dev";
+    return ""; // Leeren string zurückgeben, damit nur der Hash angezeigt wird in der Konsole
 }
 
 #define PIN        16
@@ -143,3 +143,5 @@ void BlinkModule::processAfterStartupDelay()
 // {
 //     return 10;
 // }
+
+BlinkModule openknxBlinkModule;

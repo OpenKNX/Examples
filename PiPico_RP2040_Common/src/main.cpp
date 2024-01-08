@@ -4,16 +4,11 @@
 
 void setup()
 {
-	//usually openknx.setup will take care of the begin
-	//but we will use it to print "Starte" before setup
-	//to show when common will start
-	SERIAL_DEBUG.begin(115200);
-	delay(10000);
-	SERIAL_DEBUG.println("Starte");
-
+	//Bei Firmwareänderungen, die keine neue knxprod benötigen, kann die Revision erhöht werden.
 	const uint8_t firmwareRevision = 0;
     openknx.init(firmwareRevision);
-    openknx.addModule(1, new LogModule());
+    openknx.addModule(1, openknxLogModule);
+    //openknx.addModule(9, openknxFileTransferModule); Es können auch weitere Module hinzugefügt werden
     openknx.setup();
 }
 
@@ -21,3 +16,16 @@ void loop()
 {
 	openknx.loop();
 }
+
+//Wenn -D OPENKNX_DUALCORE verwendet wird
+/*
+void setup1()
+{
+	openknx.setup1();
+}
+
+void loop1()
+{
+	openknx.loop1();
+}
+*/

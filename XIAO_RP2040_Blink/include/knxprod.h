@@ -1,3 +1,6 @@
+//Diese Datei wird vom OpenknxProducer oder Kaenx-Creator erstellt
+//Sie enthält alle Infos zu den Parameter und Kommunikationsobjekten
+
 #pragma once
 
 #define paramDelay(time) (uint32_t)( \
@@ -8,7 +11,7 @@
                                             (time & 0x3FFF) * 3600000 ) : 0 )
 //--------------------Allgemein---------------------------
 #define MAIN_OpenKnxId 0xFA
-#define MAIN_ApplicationNumber 0x02
+#define MAIN_ApplicationNumber 0x01
 #define MAIN_ApplicationVersion 0x10
 #define MAIN_OrderNumber "TA-00002.1"
 #define MAIN_ParameterSize 2
