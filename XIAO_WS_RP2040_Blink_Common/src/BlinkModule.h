@@ -6,9 +6,18 @@ class BlinkModule : public OpenKNX::Module
 	public:
 		void loop() override;
 		void setup() override;
+		// Folgende Funktionen werden immer aufgerufen, egal ob konfiguriert oder nicht
+		// Damit kann man die Info ob das Gerät konfiguriert ist selbst auswerten
+		// void loop(bool configured) override;
+		// void setup(bool configured) override;
+
 		// Wenn -D OPENKNX_DUALCORE verwendet wird
 		// void loop1() override;
 		// void setup2() override;
+		// Gilt ebenso
+		// void loop1(bool configured) override;
+		// void setup1(bool configured) override;
+
 		void processAfterStartupDelay() override;
 		void processInputKo(GroupObject &ko) override;
 
